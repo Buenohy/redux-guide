@@ -1,10 +1,12 @@
+import UserActionTypes from './action-types';
+
 const initialState = {
   currentUser: null,
 };
 
 const userReducer = (state = initialState, action) => {
-  if (action.type === 'user/login') {
-    return { ...state, currentUser: 10 };
+  if (action.type === UserActionTypes.LOGIN) {
+    return { ...state, currentUser: action.payload };
   }
   return state;
 };
