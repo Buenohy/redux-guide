@@ -6,7 +6,7 @@ import Cart from '../cart/index';
 // Styles
 import * as Styles from './styles';
 
-import UserActionTypes from '../../redux/user/action-types.js';
+import { loginUser, logoutUser } from '../../redux/user/actions';
 
 import rootReducer from '../../redux/root-reducer';
 
@@ -23,16 +23,11 @@ function Header() {
   };
 
   const handleLoginClick = () => {
-    dispatch({
-      type: UserActionTypes.LOGIN,
-      payload: { name: 'Gabriel', email: 'gabriel@bueno.com' },
-    });
+    dispatch(loginUser({ name: 'Gabriel', email: 'gabriel@bueno.com' }));
   };
 
   const handleLogoutClick = () => {
-    dispatch({
-      type: UserActionTypes.LOGOUT,
-    });
+    dispatch(logoutUser);
   };
 
   return (
